@@ -144,7 +144,8 @@ local FileName = {
         end
         return filename
     end,
-    hl = { fg = utils.get_highlight("Directory").fg },
+    -- hl = { fg = utils.get_highlight("Directory").fg },
+    hl = { fg = "green" },
 }
 
 local FileFlags = {
