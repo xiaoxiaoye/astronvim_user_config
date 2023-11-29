@@ -130,6 +130,18 @@ local FileIcon = {
     end
 }
 
+local function keep_last_three_path_parts(path)
+    local parts = {}
+    for part in string.gmatch(path, "[^/]+") do
+        table.insert(parts, part)
+    end
+    if #parts <= 4 then
+        return path
+    else
+        return table.concat(parts, "/", #parts - 2, #parts)
+    end
+end
+
 local FileName = {
     provider = function(self)
         -- first, trim the pattern relative to the current directory. For other
@@ -140,7 +152,8 @@ local FileName = {
         -- space, we trim the file path to its initials
         -- See Flexible Components section below for dynamic truncation
         if not conditions.width_percent_below(#filename, 0.25) then
-            filename = vim.fn.pathshorten(filename)
+            -- filename = vim.fn.pathshorten(filename)
+            filename = keep_last_three_path_parts(filename)
         end
         return filename
     end,
