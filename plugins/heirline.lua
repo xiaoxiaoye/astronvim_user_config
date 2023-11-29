@@ -130,7 +130,7 @@ local FileIcon = {
     end
 }
 
-local function keep_last_three_path_parts(path)
+local function keep_last_path_parts(path)
     local parts = {}
     for part in string.gmatch(path, "[^/]+") do
         table.insert(parts, part)
@@ -153,7 +153,7 @@ local FileName = {
         -- See Flexible Components section below for dynamic truncation
         if not conditions.width_percent_below(#filename, 0.25) then
             -- filename = vim.fn.pathshorten(filename)
-            filename = keep_last_three_path_parts(filename)
+            filename = keep_last_path_parts(filename)
         end
         return filename
     end,
