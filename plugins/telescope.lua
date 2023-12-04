@@ -13,11 +13,6 @@ return {
           preview_cutoff = 100,
         }
       },
-      pickers = {
-        find_files = {
-          theme = "get_ivy",
-        }
-      },
     }
   end,
 }
