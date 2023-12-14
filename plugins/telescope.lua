@@ -5,7 +5,9 @@ return {
       defaults = {
         sorting_strategy = "ascending",
         layout_strategy = "horizontal",
-        path_display = { "shorten" },
+        path_display = {
+          shorten = {len = 2, exclude = {1, -1}}
+        },
         layout_config = {
           horizontal = { prompt_position = "top", preview_width = 0.45 },
           vertical = { mirror = false },
